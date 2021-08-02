@@ -1,38 +1,184 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+:root {
+  /* Dark Mode Elements */
+  --Dark-blue: hsl(209, 23%, 22%);
+  /* Dark Mode Background */
+  --Very-dark-blue-Dark: hsl(207, 26%, 17%);
+  /* Light Mode Text */
+  --Very-dark-blue-Light: hsl(200, 15%, 8%);
+  /* Light Mode Input */
+  --Dark--gray: hsl(0, 0%, 52%);
+  /* Light Mode Background*/
+  --Very-light-gray: hsl(0, 0%, 98%);
+  /* Dark Mode Text & Light Mode Elements */
+  --White: hsl(0, 0%, 100%);
+  --Shadow: rgba(0, 0, 0, .1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--Very-dark-blue-Light);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav {
+  height: 8vh;
+  max-width: 100vw;
+  margin-bottom: 2rem;
+  background-color: var(--White);
+  box-shadow: 0 2px 2px var(--Shadow);
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+nav svg {
+  width: 1.5rem;
+}
+
+.theme-color {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.theme-color:hover {
+  cursor: pointer;
+}
+
+#container {
+  box-sizing: border-box;
+  background-color: var(--Very-light-gray);
+}
+
+.grid-container {
+  width: calc(100vw - 10%);
+  min-height: 100vh;
+  margin: auto;
+  display: grid;
+  gap: 5rem;
+  grid-auto-rows: 25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.75rem), 1fr));
+  font-size: 14px;
+}
+
+.tools-wrapper {
+  width: calc(100vw - 10%);
+  margin: auto;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-auto-rows: 3.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  gap: 20px 50px;
+}
+
+#search-country {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--Shadow);
+  padding: 5px 5%;
+  background-repeat: no-repeat;
+  background-position: 18px 18px;
+  background-size: 1.5rem;
+}
+
+#search-country:focus {
+  outline: none;
+}
+
+#region-selector {
+  background-color: var(--White);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px var(--Shadow);
+  padding: 5px 3%;
+  outline: none;
+  justify-self: end;
+  position: relative;
+}
+
+.card {
+  background-color: var(--White);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, .1);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
+
+.information-wrapper {
+  box-sizing: border-box;
+  padding: 1.25rem 10%;
+}
+
+a {
+  color: none;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.country-information {
+  width: calc(100vw - 10%);
+  min-height: 100vh;
+  margin: auto;
+}
+
+.back-button {
+  margin-bottom: 2rem;
+  width: 9.375rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 5px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--White);
 }
 
-.App-link {
-  color: #61dafb;
+.back-button svg {
+  margin-right: 10px;
+  height: 18px;
+  width: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.country-wrapper {
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
+  gap: 0 6.25rem;
+}
+
+.country-wrapper img {
+  width: 100%;
+}
+
+.country-wrapper-text {
+  margin: 10% 0;
+}
+
+@media only screen and (max-width: 944px) {
+  #region-selector {
+    justify-self: start;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--White);
+  }
+  #container {
+    background-color: var(--Very-dark-blue-Dark);
+  }
+  .card, #region-selector, #search-country, nav, .back-button {
+    background-color: var(--Dark-blue);
+    color: var(--White);
   }
 }
