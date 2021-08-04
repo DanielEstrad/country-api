@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
-import SearchIcon from '../images/search-outline.svg'
+/* import SearchIcon from '../images/search-outline.svg' */
+import Loading from './Loading';
 
 class Countries extends React.Component {
     constructor(props) {
@@ -72,20 +73,26 @@ class Countries extends React.Component {
         if (error) {
             <p>{error.message}</p>
         } else if (!isLoaded) {
-            return <div>Loading...</div>
+            return <Loading />
         } else {
             return (
                 <>
                     <div className="tools-wrapper">
-                        <input style={{ backgroundImage: `url(${SearchIcon})` }} type="text" name="search" placeholder="Search for a country..." id="search-country" onChange={this.handleChange} />
-                        <select name="regions" id="region-selector" onChange={this.selectorChange}>
-                            <option value="">Filter by Region</option>
-                            <option value="africa">Africa</option>
-                            <option value="americas">America</option>
-                            <option value="asia">Asia</option>
-                            <option value="europe">Europe</option>
-                            <option value="oceania">Oceania</option>
-                        </select>
+                        <div className="input-wrapper">
+                            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><title>Search</title><path d='M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z' fill='none' stroke='currentColor' strokeMiterlimit='10' strokeWidth='32' /><path fill='none' stroke='currentColor' strokeLinecap='round' strokeMiterlimit='10' strokeWidth='32' d='M338.29 338.29L448 448' /></svg>
+                            <input type="text" name="search" placeholder="Search for a country..." id="search-country" onChange={this.handleChange} />
+                        </div>
+                        <div className="select-wrapper">
+                            <select name="regions" id="region-selector" onChange={this.selectorChange}>
+                                <option value="">Filter by Region               </option>
+                                <option value="africa">Africa</option>
+                                <option value="americas">America</option>
+                                <option value="asia">Asia</option>
+                                <option value="europe">Europe</option>
+                                <option value="oceania">Oceania</option>
+                            </select>
+                            {/* <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><title>Chevron Down</title><path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='48' d='M112 184l144 144 144-144' /></svg> */}
+                        </div>
                     </div>
                     <div className="grid-container">
                         {countries.map(country => (
