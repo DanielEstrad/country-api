@@ -9,7 +9,7 @@ class Card extends React.Component {
                 <div className="card">
                     <img src={this.props.flag} alt={this.props.name + " Flag"}></img>
                     <div className="information-wrapper">
-                        <h3>{this.props.name}</h3>
+                        <h2>{this.props.name}</h2>
                         <p><strong>Population: </strong>{this.props.population}</p>
                         <p><strong>Region: </strong>{this.props.region}</p>
                         <p><strong>Capital: </strong>{this.props.capital}</p>
