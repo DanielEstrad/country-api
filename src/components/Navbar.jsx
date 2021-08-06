@@ -3,6 +3,11 @@ import React from 'react';
 class Navbar extends React.Component {
 
     changeSchemeColor() {
+        if (localStorage.getItem('theme') === "dark") {
+            localStorage.setItem('theme', 'light')
+        } else {
+            localStorage.setItem('theme', 'dark')
+        }
         document.body.classList.toggle('dark');
     }
 
