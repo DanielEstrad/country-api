@@ -163,6 +163,9 @@ nav svg {
   border-radius: 5px;
   box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, .1);
   cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .card img {
