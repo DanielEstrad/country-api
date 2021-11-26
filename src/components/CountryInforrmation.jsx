@@ -9,7 +9,7 @@ function CountryInformation() {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetch(`https://restcountries.eu/rest/v2/name/${name}?fullText=true`)
+        fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
             .then(data => data.json())
             .then(data => {
                 setInformation(data[0])
