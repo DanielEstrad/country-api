@@ -17,7 +17,7 @@ class Countries extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://restcountries.eu/rest/v2/all')
+        fetch('https://restcountries.com/v3.1/all')
             .then(data => data.json())
             .then(data => {
                 this.setState({
@@ -37,7 +37,7 @@ class Countries extends React.Component {
 
     handleChange(event) {
         if (event.target.value) {
-            fetch(`https://restcountries.eu/rest/v2/name/${event.target.value}`)
+            fetch(`https://restcountries.com/v3.1/name/${event.target.value}`)
                 .then(data => data.json())
                 .then(data => {
                     this.setState({
@@ -53,7 +53,7 @@ class Countries extends React.Component {
 
     selectorChange(event) {
         if (event.target.value) {
-            fetch(`https://restcountries.eu/rest/v2/region/${event.target.value}`)
+            fetch(`https://restcountries.com/v3.1/region/${event.target.value}`)
                 .then(data => data.json())
                 .then(data => {
                     this.setState({
