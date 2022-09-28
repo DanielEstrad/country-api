@@ -50,9 +50,12 @@ function CountryInformation() {
                             <li>
                                 <strong>Capital: </strong>{information.capital}
                             </li>
-                            <li>
+                            {information.tld != undefined ? <li>
                                 <strong>Top Level Domain: </strong>{information.tld[0]}
-                            </li>
+                            </li> : <li>
+                                <strong>Top Level Domain: </strong>No data
+                            </li> 
+                            }
                             <li>
                                 <strong>Currencies: </strong>{information.currencies.length > 1 ? Object.values(information.currencies).map(currency => (" " + currency.name)) : Object.values(information.currencies)[0].name}
                             </li>
