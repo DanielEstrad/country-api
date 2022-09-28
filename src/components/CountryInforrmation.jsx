@@ -12,6 +12,7 @@ function CountryInformation() {
         fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
             .then(data => data.json())
             .then(data => {
+                console.log(data[0])
                 setInformation(data[0])
                 setIsLoaded(true)
             },
@@ -31,12 +32,12 @@ function CountryInformation() {
                     </button>
                 </Link>
                 <div className="country-wrapper">
-                    <img src={information.flag} alt={information.name + " Flag"} />
+                    <img src={information.flags.svg} alt={information.name + " Flag"} />
                     <div className="country-wrapper-text">
-                        <h1>{information.name}</h1>
+                        <h1>{information.name.common}</h1>
                         <ol>
                             <li>
-                                <strong>Native Name: </strong> {information.nativeName}
+                                <strong>Native Name: </strong> {information.name.official}
                             </li>
                             <li>
                                 <strong>Population: </strong>{information.population}
@@ -51,13 +52,13 @@ function CountryInformation() {
                                 <strong>Capital: </strong>{information.capital}
                             </li>
                             <li>
-                                <strong>Top Level Domain: </strong>{information.topLevelDomain}
+                                <strong>Top Level Domain: </strong>{information.tld[0]}
                             </li>
                             <li>
-                                <strong>Currencies: </strong>{information.currencies.length > 1 ? information.currencies.map(currency => (" " + currency.name)) : information.currencies[0].name}
+                                <strong>Currencies: </strong>{information.currencies.length > 1 ? Object.values(information.currencies).map(currency => (" " + currency.name)) : Object.values(information.currencies)[0].name}
                             </li>
                             <li>
-                                <strong>Languages: </strong>{information.languages.length > 1 ? information.languages.map(language => (" " + language.name)) : information.languages[0].name}
+                                <strong>Languages: </strong>{information.languages.length > 1 ? Object.values(information.languages).map(language => (" " + language.name)) : Object.values(information.languages)[0]}
                             </li>
                         </ol>
                         <div className="border-countries">

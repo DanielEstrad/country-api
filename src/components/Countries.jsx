@@ -40,8 +40,18 @@ class Countries extends React.Component {
             fetch(`https://restcountries.com/v3.1/name/${event.target.value}`)
                 .then(data => data.json())
                 .then(data => {
+                    if (data.length > 0) {
+                        this.setState({
+                            countries: data
+                        })
+                    } else {
+                        this.setState({
+                            countries: this.state.temporalList
+                        })
+                    }
+                }, (error) => {
                     this.setState({
-                        countries: data
+                        countries: this.state.temporalList
                     })
                 })
         } else {
@@ -92,11 +102,11 @@ class Countries extends React.Component {
                             </select>
                         </div>
                     </div>
-                    <div className="grid-container">
+                    {<div className="grid-container">
                         {countries.map(country => (
-                            <Card key={country.numericCode} name={country.name} flag={country.flag} population={country.population} region={country.region} capital={country.capital} />
+                            <Card key={country.cca2 + country.ccn3 + country.cca3 + country.cioc} name={country.name.common} flag={country.flags.svg} population={country.population} region={country.region} capital={country.capital} />
                         ))}
-                    </div>
+                    </div>}
                 </>
             )
         }
