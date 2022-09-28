@@ -50,15 +50,24 @@ function CountryInformation() {
                             <li>
                                 <strong>Capital: </strong>{information.capital}
                             </li>
-                            {information.tld != undefined ? <li>
-                                <strong>Top Level Domain: </strong>{information.tld[0]}
-                            </li> : <li>
-                                <strong>Top Level Domain: </strong>No data
-                            </li> 
+                            {
+                                information.tld != undefined ?
+                                <li>
+                                    <strong>Top Level Domain: </strong>{information.tld[0]}
+                                </li> 
+                                : <li>
+                                    <strong>Top Level Domain: </strong>No data
+                                </li> 
                             }
-                            <li>
-                                <strong>Currencies: </strong>{information.currencies.length > 1 ? Object.values(information.currencies).map(currency => (" " + currency.name)) : Object.values(information.currencies)[0].name}
-                            </li>
+                            {
+                                information.currencies != undefined ?
+                                <li>
+                                    <strong>Currencies: </strong>{information.currencies.length > 1 ? Object.values(information.currencies).map(currency => (" " + currency.name)) : Object.values(information.currencies)[0].name}
+                                </li>
+                                : <li>
+                                    <strong>Currencies: </strong>No data
+                                </li>
+                            }
                             <li>
                                 <strong>Languages: </strong>{information.languages.length > 1 ? Object.values(information.languages).map(language => (" " + language.name)) : Object.values(information.languages)[0]}
                             </li>
