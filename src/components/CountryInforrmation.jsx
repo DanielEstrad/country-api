@@ -12,7 +12,6 @@ function CountryInformation() {
         fetch(`https://restcountries.com/v3.1/name/${name}?fullText=true`)
             .then(data => data.json())
             .then(data => {
-                console.log(data[0])
                 setInformation(data[0])
                 setIsLoaded(true)
             },
@@ -63,7 +62,7 @@ function CountryInformation() {
                         </ol>
                         <div className="border-countries">
                             <strong>Border Countries: </strong>
-                            {information.borders.map(x => <button className="country-button" key={x}>{x}</button>)}
+                            {information.borders != undefined ? information.borders.map(x => <button className="country-button" key={x}>{x}</button>) : "No data"}
                         </div>
                     </div>
                 </div>
