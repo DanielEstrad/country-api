@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/DanielEstrad/country-api)
-- Live Site URL: [Add live site URL here](https://country-api-seven.vercel.app/)
+- Solution URL: [](https://github.com/DanielEstrad/country-api)
+- Live Site URL: [](https://country-api-seven.vercel.app/)
 
 ## My process
 
